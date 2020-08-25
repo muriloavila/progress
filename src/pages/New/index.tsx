@@ -35,7 +35,7 @@ export default function New() {
     return (
         <div>
             <Header />
-            <h3>Registro de Nova Espacionave</h3>
+            <h3>Registro de Nova Espaçonave</h3>
             <form onSubmit={onSubmit}>
                 <label>Nome</label><br />
                 <input name="name" ref={register}/><br />

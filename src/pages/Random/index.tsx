@@ -5,7 +5,7 @@ import Header from '../Header';
 
 
 export default function Random() {
-    const [space, setSpace]:any = useState([]);
+    const [space, setSpace]:any = useState([{id: '', name: '', description: ''}]);
     
     useEffect(() => {
         const getNextProject = async() => {
@@ -20,7 +20,7 @@ export default function Random() {
                 alert('Erro ao realizar operação, por favor tente novamente');
                 return false;
             });
-            if(next.status === 200){
+            if(next.status === 200 && next.data.space !== null){                
                 setSpace(next.data.space);
             }
         }
@@ -40,7 +40,7 @@ export default function Random() {
                         <th style={{border: "1px solid black"}}>Descrição</th>
                     </tr>
                 </thead>
-                <tbody>    
+                <tbody>
                 <tr style={{border: "1px solid black"}} key={space._id}>
                     <td style={{border: "1px solid black"}}>{space.name}</td>
                     <td style={{border: "1px solid black"}}>{space.description}</td>
